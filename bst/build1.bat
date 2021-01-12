@@ -1,0 +1,1 @@
+cl.exe test1.cpp bst.cpp /EHsc /std:c++17 /Fetest1.exe

@@ -1,0 +1,29 @@
+{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: cl.exe build test driver 1",
+            "command": "cl.exe",
+            "args": [
+                "/Zi",
+                "/EHsc",
+                "/nologo",
+                "/Fetest_driver1.exe",
+                "${workspaceFolder}\\BinarySearchTree\\test_driver1.cpp",
+                "${workspaceFolder}\\BinarySearchTree\\bst.cpp"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}\\BuildDebug"
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Build test driver 1 for bst debug configuration"
+        }
+    ],
+    "version": "2.0.0"
+}

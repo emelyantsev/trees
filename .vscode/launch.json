@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "C/C++: cl.exe build and debug test driver 1",
+        "type": "cppvsdbg",
+        "request": "launch",
+        "program": "${workspaceFolder}\\BuildDebug\\test_driver1.exe",
+        "args": [],
+        "stopAtEntry": true,
+        "cwd": "${workspaceFolder}\\BuildDebug",
+        "environment": [],
+        "externalConsole": false,
+        "preLaunchTask": "C/C++: cl.exe build test driver 1"
+      }
+    ]
+  }

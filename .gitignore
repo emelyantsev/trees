@@ -42,3 +42,6 @@
 .history/
 
 notes.txt
+
+BuildDebug/*
+BuildRelease/*

@@ -12,7 +12,7 @@ BinarySearchTree::Node::Node(int val) : value(val), parent(nullptr), left(nullpt
 
 BinarySearchTree::Node::~Node() {
 
-    std::cout << "Node with " << value << " deleted" << std::endl;
+    // std::cout << "Node with " << value << " deleted" << std::endl;
 }
 
 
@@ -81,6 +81,9 @@ BinarySearchTree::Node* BinarySearchTree::Insert(int val) {
                 currentNode->right = newNode;
                 newNode->parent = currentNode;
                 ++size;
+
+                updateHeight(newNode->parent) ;
+
                 return newNode;
             }
             else {
@@ -97,6 +100,9 @@ BinarySearchTree::Node* BinarySearchTree::Insert(int val) {
                 currentNode->left = newNode;
                 newNode->parent = currentNode;
                 ++size;
+
+                updateHeight(newNode->parent) ;
+
                 return newNode;
             }
             else {
@@ -169,6 +175,8 @@ BinarySearchTree::Node* BinarySearchTree::Erase(int val) {
             root = nullptr ;
         }
 
+        updateHeight(node->parent) ;
+
         delete node;
         --size ;
         
@@ -199,6 +207,8 @@ BinarySearchTree::Node* BinarySearchTree::Erase(int val) {
             root = node->left ;
         }
 
+        updateHeight(node->parent) ;
+
         delete node;
         --size;
 
@@ -227,6 +237,8 @@ BinarySearchTree::Node* BinarySearchTree::Erase(int val) {
             node->right->parent = nullptr ;
             root = node->right ;
         }
+
+        updateHeight(node->parent) ;
 
         delete node;
         --size ;
@@ -276,6 +288,8 @@ BinarySearchTree::Node* BinarySearchTree::Erase(int val) {
             }
 
         }
+
+        updateHeight(nodeMaxLeft->parent) ;
 
         delete nodeMaxLeft;
         --size;
@@ -331,26 +345,66 @@ size_t BinarySearchTree::Size() const {
     return size;
 }
 
-// int BinarySearchTree::max_height() {
+int BinarySearchTree::Height() const {
 
-//     return height_node(root) ;
-// }
+    return height(root) ;
+}
 
-// int BinarySearchTree::height_node(BinarySearchTree::Node* p_node) {
+int BinarySearchTree::height(Node* node) const {
 
-//     if (p_node == nullptr) {
+    if (node == nullptr) {
+        return 0;
+    }
+    else {
+        return node->height;
+    }
+}
 
-//         return 0;
-//     }
+void BinarySearchTree::updateHeight(Node* node) {
 
-//     else {
+    if (node == nullptr) {
+        return ;
+    }
 
-//         return 1 + std::max(height_node(p_node->left), height_node(p_node->right)) ;
-//     }
-// }
+    Node* current = node;
 
+    while (true) {
 
+        int newHeight = std::max( height(current->left), height( current->right) ) + 1 ;
 
+        if ( newHeight != current->height) {
+
+            current->height = newHeight;
+            current = current->parent ;
+
+            if (current == nullptr) {
+                break;
+            }
+        }
+        else {
+            break;
+        }
+    }
+}
+
+bool BinarySearchTree::IsHeightCorrect() const {
+
+    return isHeightCorrect(root);
+}
+
+bool BinarySearchTree::isHeightCorrect(Node* node) const {
+
+    if (node == nullptr) {
+
+        return true;
+    }
+
+    else {
+
+        return node->height == std::max( height(node->left) , height(node->right) ) + 1 && isHeightCorrect(node->left) && isHeightCorrect(node->right) ;
+    }
+
+}
 
 
 BinarySearchTree::Node* BinarySearchTree::beginNode() const {
@@ -441,21 +495,21 @@ bool BinarySearchTree::isNodeCorrectByMinMax(Node* node, int min, int max) const
 }
 
 
-// std::vector<int> BinarySearchTree::print() {
+std::vector<int> BinarySearchTree::Print() const {
 
-//     std::vector<int> result;
+    std::vector<int> result;
 
-//     Node* current = begin_node() ;
+    Node* current = beginNode() ;
 
-//     while ( current != nullptr ) {
+    while ( current != nullptr ) {
 
-//         result.push_back(current->value );
+        result.push_back(current->value );
 
-//         current = next_node(current) ;
-//     }
+        current = nextNode(current) ;
+    }
 
-//     return result;
-// }
+    return result;
+}
 
 
 bool BinarySearchTree::isNodeLeftChild(Node* node) const {

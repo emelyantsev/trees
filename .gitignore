@@ -45,3 +45,5 @@ notes.txt
 
 BuildDebug/*
 BuildRelease/*
+
+.ipynb_checkpoints

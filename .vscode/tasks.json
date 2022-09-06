@@ -23,7 +23,111 @@
                 "isDefault": true
             },
             "detail": "Build test driver 1 for bst debug configuration"
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: cl.exe build test driver 2",
+            "command": "cl.exe",
+            "args": [
+                "/Zi",
+                "/EHsc",
+                "/nologo",
+                "/Fetest_driver2.exe",
+                "${workspaceFolder}\\BinarySearchTree\\test_driver2.cpp",
+                "${workspaceFolder}\\BinarySearchTree\\bst.cpp"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}\\BuildDebug"
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Build test driver 2 for bst debug configuration"
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: cl.exe build test driver 3",
+            "command": "cl.exe",
+            "args": [
+                "/Zi",
+                "/EHsc",
+                "/nologo",
+                "/Fetest_driver3.exe",
+                "${workspaceFolder}\\AVL\\test_driver3.cpp",
+                "${workspaceFolder}\\AVL\\avl.cpp"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}\\BuildDebug"
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Build test driver 3 for avl debug configuration"
+        },
+        
+        {
+            "type": "cppbuild",
+            "label": "C/C++: cl.exe build test driver 4",
+            "command": "cl.exe",
+            "args": [
+                "/Zi",
+                "/EHsc",
+                "/nologo",
+                "/I${workspaceFolder}\\AVL",
+                "/I${workspaceFolder}\\BinarySearchTree",
+                "/Fetest_driver4.exe",
+                "${workspaceFolder}\\Tests\\test_driver4.cpp",
+                "${workspaceFolder}\\AVL\\avl.cpp",
+                "${workspaceFolder}\\BinarySearchTree\\bst.cpp",
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}\\BuildDebug"
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Build test driver 4 debug configuration"
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: cl.exe build test driver 5",
+            "command": "cl.exe",
+            "args": [
+                "/Zi",
+                "/EHsc",
+                "/nologo",
+                "/Fetest_driver5.exe",
+                "${workspaceFolder}\\AVLSumTree\\test_driver5.cpp",
+                "${workspaceFolder}\\AVLSumTree\\avlsum.cpp"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}\\BuildDebug"
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Build test driver 5 for avl debug configuration"
         }
     ],
+
+    
+
+
     "version": "2.0.0"
 }

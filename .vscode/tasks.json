@@ -123,6 +123,31 @@
                 "isDefault": true
             },
             "detail": "Build test driver 5 for avl debug configuration"
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: cl.exe build test driver 6",
+            "command": "cl.exe",
+            "args": [
+                "/Zi",
+                "/EHsc",
+                "/nologo",
+                "/std:c++17",
+                "/Fetest_driver6.exe",
+                "${workspaceFolder}\\AVLSplitMerge\\test_driver6.cpp",
+                "${workspaceFolder}\\AVLSplitMerge\\avlsm.cpp"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}\\BuildDebug"
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Build test driver 6 for avl debug configuration"
         }
     ],
 

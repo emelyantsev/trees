@@ -148,11 +148,33 @@
                 "isDefault": true
             },
             "detail": "Build test driver 6 for avl debug configuration"
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: cl.exe build test driver 7",
+            "command": "cl.exe",
+            "args": [
+                "/Zi",
+                "/EHsc",
+                "/nologo",
+                "/std:c++17",
+                "/Fetest_driver7.exe",
+                "${workspaceFolder}\\Rope\\test_driver7.cpp",
+                "${workspaceFolder}\\Rope\\rope.cpp"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}\\BuildDebug"
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Build test driver 7 for avl debug configuration"
         }
     ],
-
-    
-
 
     "version": "2.0.0"
 }

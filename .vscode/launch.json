@@ -13,7 +13,6 @@
         "externalConsole": false,
         "preLaunchTask": "C/C++: cl.exe build test driver 1"
       },
-
       {
         "name": "C/C++: cl.exe build and debug test driver 3",
         "type": "cppvsdbg",
@@ -37,6 +36,18 @@
         "environment": [],
         "externalConsole": false,
         "preLaunchTask": "C/C++: cl.exe build test driver 6"
+      },
+      {
+        "name": "C/C++: cl.exe build and debug test driver 7",
+        "type": "cppvsdbg",
+        "request": "launch",
+        "program": "${workspaceFolder}\\BuildDebug\\test_driver7.exe",
+        "args": [],
+        "stopAtEntry": true,
+        "cwd": "${workspaceFolder}\\BuildDebug",
+        "environment": [],
+        "externalConsole": false,
+        "preLaunchTask": "C/C++: cl.exe build test driver 7"
       }
     ]
   }

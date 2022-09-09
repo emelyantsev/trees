@@ -1,4 +1,3 @@
-
 #include "avlsm.h"
 
 #include <iostream>
@@ -13,9 +12,7 @@
 
 AvlSMTree::Node::Node(int val) : value(val), parent(nullptr), left(nullptr), right(nullptr), height(1), size(1)  {}
 
-
 AvlSMTree::Node::~Node() {}
-
 
 AvlSMTree::AvlSMTree() : root(nullptr), size(0) {}
 
@@ -23,7 +20,6 @@ AvlSMTree::AvlSMTree(AvlSMTree&& other) : root(other.root), size(other.size) {
     other.root = nullptr;
     other.size = 0;
 }
-
 
 AvlSMTree::~AvlSMTree() {
 
@@ -1032,6 +1028,18 @@ std::pair<AvlSMTree::Node*, AvlSMTree::Node*> AvlSMTree::Split(Node* v, int key)
         Node* v1 = vertices.first;
         Node* v2 = vertices.second;
 
+        if (v != nullptr) {
+            v->parent = nullptr;
+        }
+
+        if (v2 != nullptr) {
+            v2->parent = nullptr;
+        }
+
+        if (v->right != nullptr) {
+            v->right->parent = nullptr;
+        }
+
         Node* v2_ = AVLMergeWithRoot(v2, v->right, v) ;
 
         if (v1 != nullptr) {
@@ -1043,24 +1051,25 @@ std::pair<AvlSMTree::Node*, AvlSMTree::Node*> AvlSMTree::Split(Node* v, int key)
 
         return {v1, v2_} ;
     }
-    // else if (key == v->value) {
-
-    //     Node* vr = v->right;
-    //     v->right = nullptr;
-        
-    //     if (vr != nullptr) {
-    //         vr->parent = v;
-    //     }
-    //     balance(v);
-
-    //     return {v, vr} ;
-    // }
     else {
 
         auto vertices = Split(v->right, key) ;
 
         Node* v1 = vertices.first;
         Node* v2 = vertices.second;
+
+        if (v != nullptr) {
+            v->parent = nullptr;
+        }
+
+        if (v1 != nullptr) {
+            v1->parent = nullptr;
+        }
+
+        if (v->left != nullptr) {
+
+            v->left->parent = nullptr;
+        }
 
         Node* v1_ = AVLMergeWithRoot(v->left, v1, v) ;
 
@@ -1070,7 +1079,6 @@ std::pair<AvlSMTree::Node*, AvlSMTree::Node*> AvlSMTree::Split(Node* v, int key)
         if (v2 != nullptr ) {
             v2->parent = nullptr;
         }
-
 
         return {v1_, v2} ;
 

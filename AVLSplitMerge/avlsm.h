@@ -24,6 +24,7 @@ class AvlSMTree {
 
         AvlSMTree();
         AvlSMTree(AvlSMTree&& other);
+        AvlSMTree(const AvlSMTree& ) = delete;
 
         ~AvlSMTree() ;
 
